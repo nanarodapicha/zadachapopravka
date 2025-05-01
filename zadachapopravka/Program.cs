@@ -12,7 +12,7 @@ namespace zadachapopravka
         static void Main(string[] args)
         {
             //vkarvame
-            List<Ustroistvo> ustroistva = new List<Ustroistvo>();
+            List<Komputur> ustroistva = new List<Komputur>();
             string file = "UstroistvaInfo.txt";
             Console.Write($"Kolko ustroistva shte vuvedesh?:");
             int n = int.Parse(Console.ReadLine());
@@ -21,7 +21,7 @@ namespace zadachapopravka
                 Console.WriteLine("Vuvedi ime na ustroistvoto|vid na povredata|suma za remont" +
                 "|datata na predavane|imeto na maistora|imeto na klienta");
                 var danni = Console.ReadLine().Split().ToArray();
-                Ustroistvo komp = new Komputur(danni[0], danni[1], double.Parse(danni[2]), int.Parse(danni[3]), danni[4], danni[5]);
+                Komputur komp = new Komputur(danni[0], danni[1], double.Parse(danni[2]), int.Parse(danni[3]), danni[4], danni[5]);
                 ustroistva.Add(komp);
             }
             Console.WriteLine("---------------------------------------------------------------");
@@ -68,24 +68,24 @@ namespace zadachapopravka
 
             Console.WriteLine("---------------------------------------------------------------");
             //sort suma
-            Console.Write("Iskash li da sortirash po suma za remont? (da/ne): ");
-            string otgv3 = Console.ReadLine().ToLower();
+            //Console.Write("Iskash li da sortirash po suma za remont? (da/ne): ");
+            //string otgv3 = Console.ReadLine().ToLower();
 
-            if (otgv3 == "da")
-            {
-                ustroistva.Sort();
-                Console.WriteLine("Sortirani ustroistva po suma za remont:");
+            //if (otgv3 == "da")
+            //{
+            //   // ustroistva.Sort();
+            //    Console.WriteLine("Sortirani ustroistva po suma za remont:");
 
-                foreach (var i in ustroistva)
-                {
-                    ((IRemontnaSistema)i).PrintInfo();
-                    Console.WriteLine("---------------------------------------------------------------");
-                }
-            }
-            else
-            {
-                Console.WriteLine("okei shtom ne iskash");
-            }
+            //    foreach (var i in ustroistva)
+            //    {
+            //        ((IRemontnaSistema)i).PrintInfo();
+            //        Console.WriteLine("---------------------------------------------------------------");
+            //    }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("okei shtom ne iskash");
+            //}
             //file 
             Console.Write("Iskash li da zapishesh inf za ustroistvata v file? (da/ne): ");
             string otgv4 = Console.ReadLine().ToLower();
