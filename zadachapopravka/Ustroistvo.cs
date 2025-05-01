@@ -6,27 +6,42 @@ using System.Threading.Tasks;
 
 namespace zadachapopravka
 {
-    public abstract class Ustroistvo:IComparable<Ustroistvo>
+    public abstract class Ustroistvo
     {
-        public string ImeUstroistvo { get; set; }
-        public string VidPovreda { get; set; }
-        public double SumaRemont { get; set; }
-        public int DataPredavane { get; set; }
-        public string ImeMaistor { get; set; }
-        public string ImeKlient { get; set; }
+        private string imeUstroistvo;
+
+        public string ImeUstroistvo
+        {
+            get { return imeUstroistvo; }
+            set 
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Vuvedi ime na ustroistvoto");
+                }
+                imeUstroistvo = value; 
+            }
+        }
+        private string vidPovreda;
+
+        public string VidPovreda
+        {
+            get { return vidPovreda; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Vuvedi vid povreda");
+                }
+                vidPovreda = value;
+            }
+        }
+        //dddddd
+        public Ustroistvo(string imeUstroistvo, string vidPovreda)
+        {
+            ImeUstroistvo = imeUstroistvo;
+            VidPovreda = vidPovreda;
+        }
         public abstract double AvrSum();
-        public Ustroistvo(string imeUstroistvo, string vidPovreda, double sumaRemont, int dataPredavane, string imeMaistor, string imeKlient)
-        {
-            this.ImeUstroistvo = imeUstroistvo;
-            this.VidPovreda = vidPovreda;
-            this.SumaRemont= sumaRemont;
-            this.DataPredavane= dataPredavane;
-            this.ImeMaistor= imeMaistor;
-            this.ImeKlient= imeKlient;
-        }
-        public int CompareTo(Ustroistvo i)
-        {
-            return this.SumaRemont.CompareTo(i.SumaRemont); 
-        }
     }
 }
